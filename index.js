@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 var userModel = require('./models/Stocks');
 
-mongoose.connect('mongodb://127.0.0.1:27017/Riafy', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://root:root@cluster0.fblmw.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true});
 var conn = mongoose.connection;
 conn.on('connected', function() {
     console.log('database is connected successfully');
