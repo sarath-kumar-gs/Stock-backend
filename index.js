@@ -13,7 +13,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 var userModel = require('./models/Stocks');
 
-mongoose.connect('mongodb+srv://root:root@cluster0.fblmw.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true});
+var port = process.env.PORT || 8080;
+
+mongoose.connect('mongodb+srv://root:root@cluster0.fblmw.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
 var conn = mongoose.connection;
 conn.on('connected', function() {
     console.log('database is connected successfully');
@@ -63,8 +65,8 @@ app.get('/list/:id', async(req, res) => {
 
 
 
-app.listen(4000,(err)=>{
+app.listen(port,(err)=>{
     if(err) throw err
-console.log("Server listening at 4000")
+console.log("Server listening at " + port)
 })
 
